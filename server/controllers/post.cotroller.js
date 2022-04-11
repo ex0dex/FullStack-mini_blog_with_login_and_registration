@@ -24,7 +24,7 @@ class PostController {
 
     const createPost = await Post.create({
       title,
-      description,
+      description, 
     });
     res.json(createPost);
   }

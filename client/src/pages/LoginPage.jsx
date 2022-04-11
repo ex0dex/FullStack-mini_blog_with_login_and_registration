@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { UseState } from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
+import { AuthContext } from '../helpers/AuthContext';
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const {setAuthState} = useContext(AuthContext)
 
     const login = async (e) => {
         e.preventDefault()
@@ -12,30 +15,41 @@ const LoginPage = () => {
             username: username,
             password: password
         }
-        await axios.post()
+        await axios.post('http://localhost:5000/api/user/login', data).then((response)=>{
+            if(response.data.error){
+                alert(response.data.error)
+            } else {
+                localStorage.setItem("accessToken", response.data)
+                setAuthState(true)
+            }
+            console.log(response.data)
+        })
     }
     return (
-        <div className='login-container'>
+        <div className="container">
             <h1>Login</h1>
-            <form>
-                <input type="text"
-                    placeholder='Enter username'
-                    onChange={(e) => {
+            <form method="post">
+                <input
+                    type="text"
+                    placeholder="Username"
+                    required="required" 
+                    onChange={(e)=>{
                         setUsername(e.target.value)
                     }}
-                    required
-                />
+                    />
+                    
                 <input type="password"
-                    placeholder='Enter password'
-                    onChange={(e) => {
+                    placeholder="Password"
+                    required="required" 
+                    onChange={(e)=>{
                         setPassword(e.target.value)
                     }}
-                    required
-                />
+                    />
+
+                <button type="submit"
+                onClick={login}
+                 className="btn btn-primary btn-block btn-large">Let me in.</button>
             </form>
-            <button className='login-btn' onClick={login} type="submit">
-                LogIn
-            </button>
         </div>
     );
 };

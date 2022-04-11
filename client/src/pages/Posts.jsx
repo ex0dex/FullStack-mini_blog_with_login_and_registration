@@ -18,9 +18,9 @@ const Posts = () => {
     return (
         <div>
             {posts.map(post => {
-                return <>
-                    <PostCard post={post} />
-                </>
+                return (<PostCard post={post} key={post.id} />)
+                    
+                
 
             })}
         </div>
