@@ -1,0 +1,156 @@
+html{
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* naBar */
+
+.header{
+    background: linear-gradient(to left top, rgb(228, 195, 255), rgb(155, 143, 245));
+    position: fixed;
+    width: 100%;
+    z-index:999;
+    height: 45px;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  list-style: none;
+}
+
+.logo :hover{
+    background-color: rgb(232, 255, 188);
+    color: rgb(156, 156, 156);
+    border-radius: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1170px;
+    width: 100%;
+    color: #fff;
+    font-family: 'Roboto';
+    margin: 0 auto;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.nav-menu a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+  /* border-bottom: 1px solid transparent; */
+  transition: 0.5s;
+}
+
+.nav-menu a:hover{
+    color: rgb(232, 255, 193);
+    border-bottom: 1px solid rgb(231, 255, 172);
+}
+.logo:hover{
+    background-color: rgb(217, 193, 255);
+    border-radius: 15px;
+    color:black
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+/* post */
+
+@media (min-width: 500px) {
+    .content {
+      margin-left: 25%;
+      margin-right: 25%;
+      /* margin-top: 3%; */
+    }
+  }
+  
+  .content {
+    padding-top: 60px;
+  }
+  
+  .post {
+    padding-bottom: 2em;
+    background-color: rgb(231, 238, 245);
+    border-radius: 10px;
+    box-shadow: 0px 20px 50px #a7adfa;
+    transition: all 1s ease;
+  
+  }
+  .post:hover {
+    -webkit-transform: translate(20px, -10px);
+    -ms-transform: translate(10px, -10px);
+    transform: translate(10px, -10px);
+    box-shadow: 0 20px 40px rgb(228, 255, 185);
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .post-title {
+    text-align: justify;
+    padding: 10px 10px 10px 10px;
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
+    text-align: center;
+  }
+  
+  .post-description {
+    font-family: Georgia, "Cambria", serif;
+    color: #444;
+    line-height: 1.8em;
+  }
+  
+  p {
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .post-btn {
+    background-color: #d6bffd;
+    color: rgb(0, 0, 0);
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 70px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: "merriweather";
+  }
+  
+  button:hover {
+    background-color: rgb(230, 255, 196);
+  }
+  
+
+  /* Login Page */
+
+  .login-container{
+      text-align: center;
+      width: 250px;
+      height: 250px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -125px 0 0 -125px;
+  }
