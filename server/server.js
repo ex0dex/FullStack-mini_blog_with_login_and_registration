@@ -11,7 +11,7 @@ app.use('/api', router)
 const boost = async () => {
   try {
     await sequelize.authenticate()
-    await sequelize.sync()
+    await sequelize.sync({force: false})
     app.listen(PORT, () => {
       console.log("server started on port 5000");
     });

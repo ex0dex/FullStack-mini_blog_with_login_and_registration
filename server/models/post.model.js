@@ -8,7 +8,10 @@ const Post = sequelize.define("posts", {
     allowNull: false,
     primaryKey: true
   },
-  
+  image:{
+    type:DataTypes.STRING,
+    allowNull:true
+  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
