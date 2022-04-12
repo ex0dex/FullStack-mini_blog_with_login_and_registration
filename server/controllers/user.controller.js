@@ -30,6 +30,7 @@ class userController {
         username,
         password: hash,
       });
+      
       return res.status(200).json(createdUser);
     } catch (error) {
       return res.json("Probably name or password field is lost");

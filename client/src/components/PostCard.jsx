@@ -10,6 +10,10 @@ const PostCard = ({ post }) => {
                         <h4>
                             {post.title}
                         </h4>
+                        <img style={{
+                            width:"600px",
+                            height:"400px"
+                        }} src={"http://localhost:5000/" + post.image} />
                     </header>
                     <article className="post-description">
                         <p>
