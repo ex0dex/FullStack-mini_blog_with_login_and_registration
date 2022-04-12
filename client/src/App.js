@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar";
 import Posts from "./pages/Posts";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./styles.css/styles.css";
 import { useEffect, useState } from "react";
@@ -33,6 +34,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Posts />}></Route>
             <Route exact path="/login" element={<LoginPage />}></Route>
+            <Route exact path="/register" element={<RegisterPage />}></Route>
             <Route exact path="/create" element={<CreateArticle />}></Route>
           </Routes>
         </BrowserRouter>

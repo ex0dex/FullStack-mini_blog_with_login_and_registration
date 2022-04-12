@@ -4,18 +4,18 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../helpers/AuthContext';
 
-const LoginPage = () => {
+const RegisterPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const {setAuthState} = useContext(AuthContext)
 
-    const login = async (e) => {
+    const register = async (e) => {
         e.preventDefault()
         const data = {
             username: username,
             password: password
         }
-        await axios.post('http://localhost:5000/api/user/login', data).then((response)=>{
+        await axios.post('http://localhost:5000/api/user/reg', data).then((response)=>{
             if(response.data.error){
                 alert(response.data.error)
             } else {
@@ -27,7 +27,7 @@ const LoginPage = () => {
     }
     return (
         <div className="container">
-            <h1>Login</h1>
+            <h1>Registration</h1>
             <form method="post">
                 <input
                     type="text"
@@ -47,11 +47,11 @@ const LoginPage = () => {
                     />
 
                 <button type="submit"
-                onClick={login}
-                 className="btn btn-primary btn-block btn-large">Let me in.</button>
+                onClick={register}
+                 className="btn btn-primary btn-block btn-large">Registration</button>
             </form>
         </div>
     );
 };
 
-export default LoginPage;
+export default RegisterPage;

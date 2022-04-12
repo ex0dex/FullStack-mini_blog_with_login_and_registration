@@ -123,7 +123,7 @@ html{
     padding: 10px 10px 10px 10px;
   }
   
-  .post-btn {
+  button {
     background-color: #d6bffd;
     color: rgb(0, 0, 0);
     padding: 10px 18px;
