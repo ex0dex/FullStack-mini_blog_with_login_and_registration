@@ -20,7 +20,7 @@ const Posts = () => {
             {posts.map(post => {
                 return (<PostCard post={post} key={post.id} />)
             })}
-            <input type="text" />
+            
         </div>
     );
 };

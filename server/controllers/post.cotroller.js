@@ -38,6 +38,16 @@ const create = async (req, res, next) => {
       description: req.body.description,
     };
 
+    const ifPostIsExists = await Post.findOne({
+      where: {
+        title:req.body.title
+      }
+    })
+
+    if(ifPostIsExists){
+      return res.json('Post exists')
+    }
+
     const post = await Post.create(info);
     res.status(200).send(post);
     console.log(post);
@@ -52,6 +62,17 @@ const getAll = async (req, res, next) =>{
         return next("There are no posts");
       }
       res.json(getPosts);
+}
+
+const getOne = async (req, res, next) => {
+
+}
+
+const update = async (req, res, next) => {
+
+}
+const deletePost = async (req, res, next) => {
+
 }
 module.exports = { upload, create, getAll };
 
