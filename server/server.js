@@ -14,7 +14,7 @@ app.use('/uploads/', express.static('./uploads/'))
 const boost = async () => {
   try {
     await sequelize.authenticate()
-    await sequelize.sync({force: false})
+    await sequelize.sync({force: true})
     app.listen(PORT, () => {
       console.log("server started on port 5000");
     });

@@ -27,19 +27,21 @@ function App() {
       });  
   }, []);
   return (
-    <>
+    <div>
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <NavBar />
+        
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Posts />}></Route>
             <Route exact path="/login" element={<LoginPage />}></Route>
             <Route exact path="/register" element={<RegisterPage />}></Route>
             <Route exact path="/create" element={<CreateArticle />}></Route>
+            
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>
-    </>
+    </div>
   );
 }
 
