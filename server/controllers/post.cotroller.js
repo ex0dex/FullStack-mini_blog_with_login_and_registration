@@ -65,16 +65,38 @@ const getAll = async (req, res, next) =>{
 }
 
 const getOne = async (req, res, next) => {
-
+  try {
+    let post = await Post.findByPk(req.params.id)
+    return res.json(post)
+  } catch (error) {
+    console.log(error)
+  }
+  
 }
 
 const update = async (req, res, next) => {
+  try {
+    await Post.update(req.body,{
+      where:{
+        id:req.params.id
+      }
+    })
+    let updated = await Post.findByPk(req.params.id)
+    return res.json(updated)
+  } catch (error) {
+    console.log(error)
+  }
 
 }
 const deletePost = async (req, res, next) => {
-
+  await Post.destroy({
+    where:{
+      id:req.params.id
+    }
+  })
+  res.send("Post Deleted")
 }
-module.exports = { upload, create, getAll };
+module.exports = { upload, create, getAll, getOne, update, deletePost };
 
 // class PostController {
 //   async create(req, res, next) {
