@@ -7,13 +7,15 @@ import { AuthContext } from '../helpers/AuthContext';
 const RegisterPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [token, setToken] = useState("")
     const {setAuthState} = useContext(AuthContext)
 
     const register = async (e) => {
         e.preventDefault()
         const data = {
             username: username,
-            password: password
+            password: password,
+            token:token
         }
         await axios.post('http://localhost:5000/api/user/reg', data).then((response)=>{
             if(response.data.error){
