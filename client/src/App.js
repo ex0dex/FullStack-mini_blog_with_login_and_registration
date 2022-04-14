@@ -4,6 +4,7 @@ import Post from './pages/Post'
 import EditPost from "./pages/EditPost";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import NotFound from "./pages/NotFound";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./styles.css/styles.css";
 import { useEffect, useState } from "react";
@@ -39,8 +40,9 @@ function App() {
             <Route exact path="/login" element={<LoginPage />}></Route>
             <Route exact path="/register" element={<RegisterPage />}></Route>
             <Route exact path="/create" element={<CreateArticle />}></Route>
-            <Route exact path="/:id" element={<Post/>}></Route>
+            <Route exact path="/read/:id" element={<Post/>}></Route>
             <Route exact path="/edit/:id" element={<EditPost/>}></Route>
+            <Route path="*" element={<NotFound/>}></Route>
             
           </Routes>
         </BrowserRouter>

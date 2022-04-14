@@ -8,9 +8,10 @@ router
   .post(validateToken, PostController.upload, PostController.create) //create
   .get(PostController.getAll); // get all
 
-router.route("/:id")
-      .get(PostController.getOne)
-      .put(PostController.update)
-      .delete(PostController.deletePost)
+router
+  .route("/:id")
+  .get(PostController.getOne)
+  .put(validateToken, PostController.update)
+  .delete(validateToken, PostController.deletePost);
 
 module.exports = router;

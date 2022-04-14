@@ -21,7 +21,7 @@ const PostCard = ({ post }) => {
                     </p>
                 </article>
                
-                <Link to={`/${post.id}`}>
+                <Link to={`/read/${post.id}`}>
                     <button>Read more...</button>
                 </Link>
 

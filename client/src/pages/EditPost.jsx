@@ -10,6 +10,12 @@ const EditPost = () => {
     const [description, setDescription] = useState('')
     const [post, setPost] = useState('')
 
+    const header = {
+        headers: {
+            accessToken: localStorage.getItem("accessToken")
+        }
+    }
+
     useEffect(() => {
         const getPostById = async () => {
             const { data } = await axios.get(`http://localhost:5000/api/posts/${id}`)
@@ -29,7 +35,11 @@ const EditPost = () => {
                 description:description,
                 post:post
             }
-            await axios.put(`http://localhost:5000/api/posts/${id}`,data)
+            await axios.put(`http://localhost:5000/api/posts/${id}`,data, header).then((response)=>{
+                if(response.data.error){
+                    alert(response.data.error)
+                }
+            })
             navigate('/')
             console.log(data)
         } catch (error) {

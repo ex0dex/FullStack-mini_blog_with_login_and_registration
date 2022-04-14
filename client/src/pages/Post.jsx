@@ -23,7 +23,16 @@ const Post = () => {
     }, [id])
 
     const handleDelete = async (id) =>{
-        await axios.delete(`http://localhost:5000/api/posts/${id}`)
+        const header = {
+            headers: {
+                accessToken: localStorage.getItem("accessToken")
+            }
+        }
+        await axios.delete(`http://localhost:5000/api/posts/${id}`,header).then((response)=>{
+            if(response.data.error){
+                alert(response.data.error)
+            }
+        })
         navigate('/')
     }
     return (
