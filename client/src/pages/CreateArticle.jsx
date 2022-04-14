@@ -7,6 +7,7 @@ const CreateArticle = () => {
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [post, setPost] = useState('')
 
     const addPost = async (e) => {
         e.preventDefault()
@@ -21,6 +22,7 @@ const CreateArticle = () => {
         formData.append('image', image)
         formData.append('title', title)
         formData.append('description', description)
+        formData.append('post', post)
 
 
         await axios.post('http://localhost:5000/api/posts/', formData, header).then((response) => {
@@ -51,6 +53,12 @@ const CreateArticle = () => {
                     value={description}
                     as="textarea"
                     onChange={(e) => setDescription(e.target.value)}
+                />
+                <h2>Enter Post</h2>
+                <textarea type="text"
+                    value={post}
+                    as="textarea"
+                    onChange={(e) => setPost(e.target.value)}
                 />
                 <button>Submit</button>
             </form>

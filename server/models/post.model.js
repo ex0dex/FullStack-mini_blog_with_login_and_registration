@@ -6,20 +6,24 @@ const Post = sequelize.define("posts", {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
-  image:{
-    type:DataTypes.STRING,
-    allowNull:true
+  image: {
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate:{
-      len: 2
-    }
+    validate: {
+      len: 2,
+    },
   },
   description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  post: {
     type: DataTypes.TEXT,
     allowNull: false,
   },

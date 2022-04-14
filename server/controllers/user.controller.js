@@ -5,7 +5,7 @@ const { sign } = require("jsonwebtoken");
 class userController {
   async reg(req, res, next) {
     try {
-      const { username, password } = req.body;
+      const { token, username, password} = req.body;
       const ifUserIsExsists = await User.findOne({
         where: {
           username,
@@ -24,14 +24,18 @@ class userController {
             error: "Username or password can not be empty",
           })
         );
+      } else {
+        
+        const hash = await bcrypt.hash(password, 10);
+        const createdUser = await User.create({
+          token,
+          username,
+          password: hash,
+         
+        });
+        return res.status(200).json(createdUser);
       }
-      const hash = await bcrypt.hash(password, 10);
-      const createdUser = await User.create({
-        username,
-        password: hash,
-      });
-      
-      return res.status(200).json(createdUser);
+     
     } catch (error) {
       return res.json("Probably name or password field is lost");
     }
@@ -48,7 +52,7 @@ class userController {
     if (!user) {
       return next(
         res.json({
-          fail: "User does not exists",
+          error: "User does not exists",
         })
       );
     } else {

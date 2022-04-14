@@ -23,10 +23,11 @@ const LoginPage = () => {
             } else {
                 localStorage.setItem("accessToken", response.data)
                 setAuthState(true)
+                navigate('/create')
             }
             console.log(response.data)
         })
-        navigate('/create')
+       
     }
     return (
         <div className="container">

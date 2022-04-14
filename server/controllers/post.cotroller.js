@@ -36,6 +36,7 @@ const create = async (req, res, next) => {
       image: req.file.path,
       title: req.body.title,
       description: req.body.description,
+      post: req.body.post
     };
 
     const ifPostIsExists = await Post.findOne({

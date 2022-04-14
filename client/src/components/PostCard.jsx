@@ -20,6 +20,11 @@ const PostCard = ({ post }) => {
                             {post.description}
                         </p>
                     </article>
+                    <article className="post-description">
+                        <p>
+                            {post.post}
+                        </p>
+                    </article>
                     <button>Read more...</button>
                 </section>
             
