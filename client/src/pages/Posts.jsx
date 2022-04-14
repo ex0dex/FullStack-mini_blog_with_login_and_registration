@@ -19,7 +19,7 @@ const Posts = () => {
         <div>
             {posts.map(post => {
                 return (<PostCard post={post} key={post.id} />)
-            })}
+            }).reverse()}
             
         </div>
     );
