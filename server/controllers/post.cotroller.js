@@ -39,15 +39,17 @@ const create = async (req, res, next) => {
       post: req.body.post
     };
 
-    const ifPostIsExists = await Post.findOne({
-      where: {
-        title:req.body.title
-      }
-    })
+    // const ifPostIsExists = await Post.findOne({
+    //   where: {
+    //     title:req.body.title
+    //   }
+    // })
 
-    if(ifPostIsExists){
-      return res.json('Post exists')
-    }
+    // if(ifPostIsExists){
+    //   return res.json({
+    //     messge: "Post is Exists"
+    //   })
+    // }
 
     const post = await Post.create(info);
     res.status(200).send(post);

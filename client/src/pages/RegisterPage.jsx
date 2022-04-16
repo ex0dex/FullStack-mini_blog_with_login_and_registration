@@ -3,8 +3,10 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../helpers/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
+    const navigate = useNavigate()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [token, setToken] = useState("")
@@ -23,6 +25,8 @@ const RegisterPage = () => {
             } else {
                 localStorage.setItem("accessToken", response.data)
                 setAuthState(true)
+                navigate('/login')
+                
             }
             console.log(response.data)
         })
